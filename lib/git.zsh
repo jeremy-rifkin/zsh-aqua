@@ -28,9 +28,6 @@ git_status() {
 		if $(echo "$_INDEX" | command grep -q -E '^\?\? '); then
 			_STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
 		fi
-	#	if $(echo "$_INDEX" | command grep -q '^UU '); then
-	#		_STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
-	#	fi
 	else
 		_STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
 	fi
@@ -42,12 +39,6 @@ git_status() {
 	if $(echo "$_INDEX" | command grep -q '^## .*behind'); then
 		_STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_BEHIND"
 	fi
-	#if $(echo "$_INDEX" | command grep -q '^## .*diverged'); then
-	#	_STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_DIVERGED"
-	#fi
-	#if $(command git rev-parse --verify refs/stash &> /dev/null); then
-	#	_STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
-	#fi
 	echo $_STATUS
 }
 git_info() {
