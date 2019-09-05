@@ -1,3 +1,6 @@
+# This code is from Oh My Zsh -- https://github.com/robbyrussell/oh-my-zsh/
+# Copyright (c) 2009-2019 Robby Russell and contributors
+
 # is x grep argument available?
 grep-flag-available() {
     echo | grep $1 "" >/dev/null 2>&1

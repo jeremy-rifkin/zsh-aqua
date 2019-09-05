@@ -1,3 +1,6 @@
+# This code is from Oh My Zsh -- https://github.com/robbyrussell/oh-my-zsh/
+# Copyright (c) 2009-2019 Robby Russell and contributors
+
 # Set terminal window and tab/icon title
 #
 # usage: title short_tab_title [long_window_title]

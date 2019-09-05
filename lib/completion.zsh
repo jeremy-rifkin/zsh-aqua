@@ -1,3 +1,6 @@
+# This code is from Oh My Zsh -- https://github.com/robbyrussell/oh-my-zsh/
+# Copyright (c) 2009-2019 Robby Russell and contributors
+
 # fixme - the load process here seems a bit bizarre
 zmodload -i zsh/complist
 
