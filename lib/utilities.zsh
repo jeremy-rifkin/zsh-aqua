@@ -139,7 +139,12 @@ function back() {
 	popd
 }
 function forward() {
+	if [ $_lastd == "" ]
+	then
+		return 1
+	fi
 	cd "$_lastd"
+	_lastd=""
 }
 setopt auto_pushd
 setopt pushd_ignore_dups
