@@ -100,12 +100,12 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 function check() {
 	if [ $# -eq 0 ]
 	then
-		echo "must specify name or path"
+		echo "Must specify file."
 		return 1
 	fi
 	if [ ! -f $1 ]
 	then
-		echo "$fg[red]Error:$reset File doesn't exist"
+		echo "$fg[red]Error:$reset File doesn't exist."
 		return 1
 	fi
 	echo "md5 $(md5sum $1)\nsha1 $(sha1sum $1)\nsha256 $(sha256sum $1)" | column -t -s" "
