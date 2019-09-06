@@ -113,14 +113,14 @@ function check() {
 
 # cd up $1 dirs (or 1 dir if $1 isn't provided)
 function up() {
-	if [ $# -eq 0 ]
+	local _u=1
+	if [ $# -gt 0 ]
 	then
-		echo "Must specify number"
-		return 1
+		_u=$1
 	fi
-	if (($1 < 0))
+	if (($_u < 0))
 	then
-		echo "Nice try"
+		echo "Nice try."
 		return 1
 	fi
 
