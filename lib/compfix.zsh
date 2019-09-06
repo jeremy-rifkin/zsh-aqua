@@ -29,19 +29,33 @@ function handle_completion_insecurities() {
 
   cat <<EOD
 
-[oh-my-zsh] For safety, we will not load completions from these directories until
-[oh-my-zsh] you fix their permissions and ownership and restart zsh.
-[oh-my-zsh] See the above list for directories with group or other writability.
+[zsh] For safety, we will not load completions from these directories until
+[zsh] you fix their permissions and ownership and restart zsh.
+[zsh] See the above list for directories with group or other writability.
 
-[oh-my-zsh] To fix your permissions you can do so by disabling
-[oh-my-zsh] the write permission of "group" and "others" and making sure that the
-[oh-my-zsh] owner of these directories is either root or your current user.
-[oh-my-zsh] The following command may help:
-[oh-my-zsh]     compaudit | xargs chmod g-w,o-w
+[zsh] To fix your permissions you can do so by disabling
+[zsh] the write permission of "group" and "others" and making sure that the
+[zsh] owner of these directories is either root or your current user.
+[zsh] The following command may help:
+[zsh]     compaudit | xargs chmod g-w,o-w
 
-[oh-my-zsh] If the above didn't help or you want to skip the verification of
-[oh-my-zsh] insecure directories you can set the variable ZSH_DISABLE_COMPFIX to
-[oh-my-zsh] "true" before oh-my-zsh is sourced in your zshrc file.
+[zsh] If the above didn't help or you want to skip the verification of
+[zsh] insecure directories you can set the variable ZSH_DISABLE_COMPFIX to
+[zsh] "true" before oh-my-zsh is sourced in your zshrc file.
 
 EOD
 }
+
+# Save the location of the current completion dump file.
+if [ -z "$ZSH_COMPDUMP" ]; then
+  ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+fi
+if [[ $ZSH_DISABLE_COMPFIX != true ]]; then
+  # If completion insecurities exist, warn the user
+  handle_completion_insecurities
+  # Load only from secure directories
+  compinit -i -C -d "${ZSH_COMPDUMP}"
+else
+  # If the user wants it, load from all found directories
+  compinit -u -C -d "${ZSH_COMPDUMP}"
+fi
