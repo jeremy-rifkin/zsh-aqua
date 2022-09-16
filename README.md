@@ -4,11 +4,11 @@ ZSH Aqua is a ZSH environment configuration which aims to be nice-looking, funct
 
 ## Contents:
 - [ZSH Aqua](#zsh-aqua)
-	- [Contents:](#contents)
+    - [Contents:](#contents)
 - [Themes](#themes)
-	- [Dolphin](#dolphin)
-	- [Narwhal](#narwhal)
-	- [Stingray](#stingray)
+    - [Dolphin](#dolphin)
+    - [Narwhal](#narwhal)
+    - [Stingray](#stingray)
 - [Command Tools](#command-tools)
 - [Other Environment Features](#other-environment-features)
 - [Install ZSH Aqua](#install-zsh-aqua)
@@ -48,7 +48,7 @@ ZSH Aqua is a ZSH environment configuration which aims to be nice-looking, funct
 | `lu [directory=.]` | List file sizes of contents of `directory`. |
 | `take <directory>` | Create `directory` and cd into it. |
 | `up [n=1]` | Cd up `n` directories. |
-| `back` | 	Go back to the directory you were previous in. |
+| `back` |     Go back to the directory you were previous in. |
 | `forward` | Go forward to the directory just backed out of (only remembers the most recent one). |
 | `d` | Print the directory history. |
 | `check <file>` | Perform md5, sha1, and sha256 checksums on `file`. |
@@ -84,12 +84,17 @@ if [ -d ".zsh-aqua/" ]
 then
     echo "Directory .zsh-aqua/ already exists. Please remove it."
 else
-	mkdir .zsh-aqua && cd .zsh-aqua
-	wget "https://raw.githubusercontent.com/jeremy-rifkin/zsh-aqua/master/bundle.tar.gz"
-	tar -xzf bundle.tar.gz && rm bundle.tar.gz
-	cd ..
+    mkdir .zsh-aqua && cd .zsh-aqua
+    wget "https://raw.githubusercontent.com/jeremy-rifkin/zsh-aqua/master/bundle.tar.gz"
+    tar -xzf bundle.tar.gz && rm bundle.tar.gz
+    cd ..
 fi
 ```
+Or:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/jeremy-rifkin/zsh-aqua/master/download.sh)
+```
+
 3. Add the following to the top of your `~/.zshrc` file (create it if it doesn't exist). This will load ZSH Aqua when you open a new shell. *(Replace `<theme>` with the theme you want to use)*
 ```bash
 ZSH=~/.zsh-aqua
@@ -108,31 +113,31 @@ Here's the raw hex values:
 
 ```javascript
 {
-	black:   "#263238",
-	red:     "#FF5252",
-	green:   "#69F0AE",
-	yellow:  "#FFD740",
-	blue:    "#3FC4FF",
-	magenta: "#FF4081",
-	cyan:    "#65FCDA",
-	white:   "#546E7A",
-	lightBlack:   "#546E7A",
-	lightRed:     "#FF5252",
-	lightGreen:   "#69F0AE",
-	lightYellow:  "#FFD740",
-	lightBlue:    "#3FC4FF",
-	lightMagenta: "#FF4081",
-	lightCyan:    "#65FCDA",
-	lightWhite:   "#ECEFF1"
+    black:   "#263238",
+    red:     "#FF5252",
+    green:   "#69F0AE",
+    yellow:  "#FFD740",
+    blue:    "#3FC4FF",
+    magenta: "#FF4081",
+    cyan:    "#65FCDA",
+    white:   "#546E7A",
+    lightBlack:   "#546E7A",
+    lightRed:     "#FF5252",
+    lightGreen:   "#69F0AE",
+    lightYellow:  "#FFD740",
+    lightBlue:    "#3FC4FF",
+    lightMagenta: "#FF4081",
+    lightCyan:    "#65FCDA",
+    lightWhite:   "#ECEFF1"
 }
 ```
 
 As well as the following terminal configuration:
 ```javascript
 {
-	foregroundColor: "#ECEFF1",
-	backgroundColor: "#263238",
-	selectionColor:  "rgba(135,135,135,0.2)"
+    foregroundColor: "#ECEFF1",
+    backgroundColor: "#263238",
+    selectionColor:  "rgba(135,135,135,0.2)"
 }
 ```
 
